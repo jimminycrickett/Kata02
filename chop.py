@@ -1,3 +1,16 @@
+#import functools, time
+
+#def timing(f):
+    # @functools.wraps(f)
+    # def wrap(*args):
+    #     time1 = time.time()
+    #     ret = f(*args)
+    #     time2 = time.time()
+    #     print '%s function took %0.3f ms' % (f.func_name, (time2-time1)*1000.0)
+    #     return ret
+    # return wrap
+
+#@timing
 def chop_test():
     assert chop(3, []) == -1
     assert chop(3, [1]) == -1
@@ -20,6 +33,7 @@ def chop_test():
     assert chop(8, [1, 3, 5, 7]) == -1
     return "chop Passed!"
 
+#@timing
 def chop2_test():
     assert chop2(3,[]) == -1
     assert chop2(3,[1]) == -1
@@ -42,6 +56,7 @@ def chop2_test():
     assert chop2(8, [1, 3, 5, 7])== -1
     return "chop2 Passed!"
 
+#@timing
 def chop3_test():
     assert chop3(3,[]) == -1
     assert chop3(3,[1]) == -1
@@ -64,6 +79,7 @@ def chop3_test():
     assert chop3(8, [1, 3, 5, 7])== -1
     return "chop3 Passed!"
 
+#@timing
 def chop4_test():
     assert chop4(3,[]) == -1
     assert chop4(3,[1]) == -1
@@ -86,6 +102,7 @@ def chop4_test():
     assert chop4(8, [1, 3, 5, 7])== -1
     return "chop4 Passed!"
 
+#@timing
 def chop(int, list_of_int):
     if type(int).__name__ != 'int':
         raise TypeError("Value must be an integer.")
@@ -98,6 +115,7 @@ def chop(int, list_of_int):
 
 chop2 = lambda int, list_of_int: list_of_int.index(int) if int in list_of_int else -1
 
+#@timing
 def chop3(integer, list_of_int):
     result = -1
     for index in range(len(list_of_int)):
@@ -108,6 +126,7 @@ def chop3(integer, list_of_int):
             continue
     return result
 
+#@timing
 def chop4(integer,list_of_int):
     if isinstance(integer,int) and isinstance(list_of_int,list):
         int_dict = {}
@@ -119,10 +138,12 @@ def chop4(integer,list_of_int):
         except Exception:
             return -1
 
+from timeit import timeit
 
-print(chop_test())
-print(chop2_test())
-print(chop3_test())
-print(chop4_test())
+print(timeit(lambda: chop_test(), number=1000))
+print(timeit(lambda: chop2_test(), number=1000))
+print(timeit(lambda: chop3_test(), number=1000))
+print(timeit(lambda: chop4_test(), number=1000))
+
 
 
