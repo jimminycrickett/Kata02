@@ -148,7 +148,7 @@ def chop(int, list_of_int):
         return list_of_int.index(int)
     return -1
 
-chop2 = lambda int, list_of_int: list_of_int.index(int) if int in list_of_int else -1
+chop2 = lambda integer, list_of_int: list_of_int.index(integer) if integer in list_of_int else -1
 
 #@timing
 def chop3(integer, list_of_int):
@@ -182,9 +182,6 @@ def chop5(integer, list_of_int):
         else:
             continue
     return -1
-
-
-
 
 #---------Functions-------------
 #---------Work------------------
