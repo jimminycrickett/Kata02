@@ -111,6 +111,30 @@ def chop4_test():
     assert chop4(6, [1, 3, 5, 7]) == -1
     assert chop4(8, [1, 3, 5, 7]) == -1
     return "chop4 Passed!"
+
+def chop5_test():
+    "Test for method 5 of the 'chop' problem kata"
+    assert chop5(3, []) == -1
+    assert chop5(3, [1]) == -1
+    assert chop5(1, [1]) == 0
+    assert chop5(1, [1, 3, 5]) == 0
+    assert chop5(3, [1, 3, 5]) == 1
+    assert chop5(5, [1, 3, 5]) == 2
+    assert chop5(0, [1, 3, 5]) == -1
+    assert chop5(2, [1, 3, 5]) == -1
+    assert chop5(4, [1, 3, 5]) == -1
+    assert chop5(6, [1, 3, 5]) == -1
+    assert chop5(1, [1, 3, 5, 7]) == 0
+    assert chop5(3, [1, 3, 5, 7]) == 1
+    assert chop5(5, [1, 3, 5, 7]) == 2
+    assert chop5(7, [1, 3, 5, 7]) == 3
+    assert chop5(0, [1, 3, 5, 7]) == -1
+    assert chop5(2, [1, 3, 5, 7]) == -1
+    assert chop5(4, [1, 3, 5, 7]) == -1
+    assert chop5(6, [1, 3, 5, 7]) == -1
+    assert chop5(8, [1, 3, 5, 7]) == -1
+    return "chop5 Passed!"
+
 #---------Tests-----------------
 
 #---------Functions-------------
@@ -148,14 +172,30 @@ def chop4(integer,list_of_int):
             return int_dict[integer]
         except Exception:
             return -1
+
+def chop5(integer, list_of_int):
+    integer = int(integer)
+    list_of_int = list(list_of_int)
+    for count, item in enumerate(list_of_int):
+        if item is integer:
+            return count
+        else:
+            continue
+    return -1
+
+
+
+
 #---------Functions-------------
 #---------Work------------------
 print(chop_test())
 print(chop2_test())
 print(chop3_test())
 print(chop4_test())
+print(chop5_test())
 print(timeit(lambda: chop_test(), number=1000))
 print(timeit(lambda: chop2_test(), number=1000))
 print(timeit(lambda: chop3_test(), number=1000))
 print(timeit(lambda: chop4_test(), number=1000))
+print(timeit(lambda: chop5_test(), number=1000))
 #---------Work------------------
