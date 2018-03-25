@@ -1,5 +1,11 @@
+#---------IMPORTS---------------
+from timeit import timeit
+"Module: timeit used for execution measurement in 'Work' section"
+"Module: functools, time used for execution measurement with decorators"
+"       Note: ^ commented out because timeit works better, leaving it in because it's another way to do it and it's a good example of decorators"
 #import functools, time
-
+#---------IMPORTS---------------
+#---------Tests-----------------
 #def timing(f):
     # @functools.wraps(f)
     # def wrap(*args):
@@ -12,6 +18,7 @@
 
 #@timing
 def chop_test():
+    "Test for method 1 of the 'chop' problem kata"
     assert chop(3, []) == -1
     assert chop(3, [1]) == -1
     assert chop(1, [1]) == 0
@@ -35,9 +42,10 @@ def chop_test():
 
 #@timing
 def chop2_test():
-    assert chop2(3,[]) == -1
-    assert chop2(3,[1]) == -1
-    assert chop2(1,[1]) == 0
+    "Test for method 2 of the 'chop' problem kata"
+    assert chop2(3, []) == -1
+    assert chop2(3, [1]) == -1
+    assert chop2(1, [1]) == 0
     assert chop2(1, [1, 3, 5]) == 0
     assert chop2(3, [1, 3, 5]) == 1
     assert chop2(5, [1, 3, 5]) == 2
@@ -49,18 +57,19 @@ def chop2_test():
     assert chop2(3, [1, 3, 5, 7]) == 1
     assert chop2(5, [1, 3, 5, 7]) == 2
     assert chop2(7, [1, 3, 5, 7]) == 3
-    assert chop2(0, [1, 3, 5, 7])== -1
-    assert chop2(2, [1, 3, 5, 7])== -1
-    assert chop2(4, [1, 3, 5, 7])== -1
-    assert chop2(6, [1, 3, 5, 7])== -1
-    assert chop2(8, [1, 3, 5, 7])== -1
+    assert chop2(0, [1, 3, 5, 7]) == -1
+    assert chop2(2, [1, 3, 5, 7]) == -1
+    assert chop2(4, [1, 3, 5, 7]) == -1
+    assert chop2(6, [1, 3, 5, 7]) == -1
+    assert chop2(8, [1, 3, 5, 7]) == -1
     return "chop2 Passed!"
 
 #@timing
 def chop3_test():
-    assert chop3(3,[]) == -1
-    assert chop3(3,[1]) == -1
-    assert chop3(1,[1]) == 0
+    "Test for method 3 of the 'chop' problem kata"
+    assert chop3(3, []) == -1
+    assert chop3(3, [1]) == -1
+    assert chop3(1, [1]) == 0
     assert chop3(1, [1, 3, 5]) == 0
     assert chop3(3, [1, 3, 5]) == 1
     assert chop3(5, [1, 3, 5]) == 2
@@ -72,18 +81,19 @@ def chop3_test():
     assert chop3(3, [1, 3, 5, 7]) == 1
     assert chop3(5, [1, 3, 5, 7]) == 2
     assert chop3(7, [1, 3, 5, 7]) == 3
-    assert chop3(0, [1, 3, 5, 7])== -1
-    assert chop3(2, [1, 3, 5, 7])== -1
-    assert chop3(4, [1, 3, 5, 7])== -1
-    assert chop3(6, [1, 3, 5, 7])== -1
-    assert chop3(8, [1, 3, 5, 7])== -1
+    assert chop3(0, [1, 3, 5, 7]) == -1
+    assert chop3(2, [1, 3, 5, 7]) == -1
+    assert chop3(4, [1, 3, 5, 7]) == -1
+    assert chop3(6, [1, 3, 5, 7]) == -1
+    assert chop3(8, [1, 3, 5, 7]) == -1
     return "chop3 Passed!"
 
 #@timing
 def chop4_test():
-    assert chop4(3,[]) == -1
-    assert chop4(3,[1]) == -1
-    assert chop4(1,[1]) == 0
+    "Test for method 4 of the 'chop' problem kata"
+    assert chop4(3, []) == -1
+    assert chop4(3, [1]) == -1
+    assert chop4(1, [1]) == 0
     assert chop4(1, [1, 3, 5]) == 0
     assert chop4(3, [1, 3, 5]) == 1
     assert chop4(5, [1, 3, 5]) == 2
@@ -95,13 +105,15 @@ def chop4_test():
     assert chop4(3, [1, 3, 5, 7]) == 1
     assert chop4(5, [1, 3, 5, 7]) == 2
     assert chop4(7, [1, 3, 5, 7]) == 3
-    assert chop4(0, [1, 3, 5, 7])== -1
-    assert chop4(2, [1, 3, 5, 7])== -1
-    assert chop4(4, [1, 3, 5, 7])== -1
-    assert chop4(6, [1, 3, 5, 7])== -1
-    assert chop4(8, [1, 3, 5, 7])== -1
+    assert chop4(0, [1, 3, 5, 7]) == -1
+    assert chop4(2, [1, 3, 5, 7]) == -1
+    assert chop4(4, [1, 3, 5, 7]) == -1
+    assert chop4(6, [1, 3, 5, 7]) == -1
+    assert chop4(8, [1, 3, 5, 7]) == -1
     return "chop4 Passed!"
+#---------Tests-----------------
 
+#---------Functions-------------
 #@timing
 def chop(int, list_of_int):
     if type(int).__name__ != 'int':
@@ -137,13 +149,10 @@ def chop4(integer,list_of_int):
             return int_dict[integer]
         except Exception:
             return -1
-
-from timeit import timeit
-
+#---------Functions-------------
+#---------Work------------------
 print(timeit(lambda: chop_test(), number=1000))
 print(timeit(lambda: chop2_test(), number=1000))
 print(timeit(lambda: chop3_test(), number=1000))
 print(timeit(lambda: chop4_test(), number=1000))
-
-
-
+#---------Work------------------
