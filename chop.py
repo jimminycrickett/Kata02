@@ -64,6 +64,28 @@ def chop3_test():
     assert chop3(8, [1, 3, 5, 7])== -1
     return "chop3 Passed!"
 
+def chop4_test():
+    assert chop4(3,[]) == -1
+    assert chop4(3,[1]) == -1
+    assert chop4(1,[1]) == 0
+    assert chop4(1, [1, 3, 5]) == 0
+    assert chop4(3, [1, 3, 5]) == 1
+    assert chop4(5, [1, 3, 5]) == 2
+    assert chop4(0, [1, 3, 5]) == -1
+    assert chop4(2, [1, 3, 5]) == -1
+    assert chop4(4, [1, 3, 5]) == -1
+    assert chop4(6, [1, 3, 5]) == -1
+    assert chop4(1, [1, 3, 5, 7]) == 0
+    assert chop4(3, [1, 3, 5, 7]) == 1
+    assert chop4(5, [1, 3, 5, 7]) == 2
+    assert chop4(7, [1, 3, 5, 7]) == 3
+    assert chop4(0, [1, 3, 5, 7])== -1
+    assert chop4(2, [1, 3, 5, 7])== -1
+    assert chop4(4, [1, 3, 5, 7])== -1
+    assert chop4(6, [1, 3, 5, 7])== -1
+    assert chop4(8, [1, 3, 5, 7])== -1
+    return "chop4 Passed!"
+
 def chop(int, list_of_int):
     if type(int).__name__ != 'int':
         raise TypeError("Value must be an integer.")
@@ -86,8 +108,21 @@ def chop3(integer, list_of_int):
             continue
     return result
 
+def chop4(integer,list_of_int):
+    if isinstance(integer,int) and isinstance(list_of_int,list):
+        int_dict = {}
+        for index in range(len(list_of_int)):
+            dset = {list_of_int[index]:index}
+            int_dict.update(dset)
+        try:
+            return int_dict[integer]
+        except Exception:
+            return -1
+
+
 print(chop_test())
 print(chop2_test())
 print(chop3_test())
+print(chop4_test())
 
 
