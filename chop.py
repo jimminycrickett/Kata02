@@ -122,8 +122,7 @@ def chop(int, list_of_int):
         raise TypeError("Value of 'list' must be of type: list.")
     if int in list_of_int:
         return list_of_int.index(int)
-    else:
-        return -1
+    return -1
 
 chop2 = lambda int, list_of_int: list_of_int.index(int) if int in list_of_int else -1
 
@@ -151,6 +150,10 @@ def chop4(integer,list_of_int):
             return -1
 #---------Functions-------------
 #---------Work------------------
+print(chop_test())
+print(chop2_test())
+print(chop3_test())
+print(chop4_test())
 print(timeit(lambda: chop_test(), number=1000))
 print(timeit(lambda: chop2_test(), number=1000))
 print(timeit(lambda: chop3_test(), number=1000))
